@@ -1,6 +1,6 @@
 require 'pg'
 require 'pry'
-require 'BCrypt'
+require 'bcrypt'
 
 module Sinatra
 
