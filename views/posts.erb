@@ -1,0 +1,24 @@
+
+<% if @posts.length > 0 %>
+<% @posts.each do |post| %>
+
+  <h2><%= post['title'] %></h2>
+  <img id = "post_img" src="<%= post['img_url'] %>"/>
+  <p><%= post['content'] %> </p>
+
+
+  <form action'/posts' method="post">
+    <input type='hidden' name='_method' value='DELETE'/>
+    <input type='hidden' name='post_id' value='<%= post['id'] %>'/>
+    <button class='delete'>DELETE</button>
+  </form>
+
+<% end %>
+
+<% else %>
+  <h2><a href='/post'>There is nothing here. Post something new!</a></h2>
+
+<% end %>
+
+
+

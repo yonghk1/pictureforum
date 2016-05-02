@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/skeleton.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+    <ul class="signin">
+      <li class="top_list"><p><a href="/about">About</a></p></li>
+      <li class="top_list"><p><a href="/login">Log in</a></p></li>
+      <li class="top_list"><p><a href="/signup"> Sign Up</a></p></li>
+      <li class="top_list"><p><a href="/">Home</a></p></li>
+    </ul>
+    </div>
+    <%= yield %>
+    <div class="footer">
+    </div>
+  </div>
+</body>
+</html>
+<script src="/js/jquery.js" type="text/javascript"></script>
+<script src="/js/script.js" type="text/javascript"></script>
