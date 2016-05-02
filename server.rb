@@ -6,7 +6,6 @@ module Sinatra
 
   class Server < Sinatra::Base
     set :method_override, true
-    db = PG.connect dbname: "wonders_of_world"
 
     def current_user
       @current_user ||= conn.exec("SELECT * FROM users WHERE id=#{session[:user_id]}").first
@@ -89,6 +88,19 @@ module Sinatra
       # request = db.exec("SELECT * FROM posts")
       # @posts = request.to_a
       # erb :posts
+    end
+
+    def db
+      if ENV["RACK_ENV"] == "production"
+        PG.connect(
+          dbname: ENV["POSTGRES_DB"],
+          host: ENV["POSTGRES_HOST"],
+          password: ENV["POSTGRES_PASS"],
+          user: ENV["POSTGRES_USER"]
+        )
+      else
+        PG.connect(dbname: "wonders_of_world")
+      end
     end
 
 
